@@ -16,7 +16,7 @@ module.exports = {
         apiKey: process.env.AIRTABLE_KEY, //required
         baseId: process.env.AIRTABLE_BASE, //required
         tableName: 'Events', //required
-        typeName: 'Event', //required
+        typeName: 'Event', //required - needs to match template name
         route: '/events/:name' //optional
       }
     }
