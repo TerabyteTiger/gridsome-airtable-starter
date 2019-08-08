@@ -7,8 +7,10 @@
   >
       <h1 class="handwriting eventTitle">{{ event.name }}</h1>
       <p class="eventDates">{{formattedStart}} - {{formattedEnd}}</p>
+      <p class="eventDates">{{formattedDate}}</p>
       <p>{{ event.notes }}</p>
-  </div>
+      <g-link :to="event.path">More details >></g-link>
+  </div> 
 </template>
 
 <script>
@@ -25,6 +27,15 @@ export default {
     },
     formattedEnd: function(){
       return moment(this.event.endDate).format("MM/DD/YYYY h:mm A")
+    },
+    formattedDate: function(){
+      const start = moment(this.event.startDate).format("MM/DD/YYYY")
+      const end = moment(this.event.endDate).format("MM/DD/YYYY")
+      if ( start == end ) {
+        return moment(this.event.startDate).format("MM/DD/YYYY h:mm A") + " - " + moment(this.event.endDate).format("h:mm A")
+      } else {
+        return moment(this.event.startDate).format("MM/DD/YYYY h:mm A") + " - " + moment(this.event.endDate).format("MM/DD/YYYY h:mm A")
+      }
     }
   },
 }
