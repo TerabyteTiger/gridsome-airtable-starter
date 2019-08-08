@@ -24,10 +24,11 @@ query {
 
 <style>
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin:0;
   padding:0;
   line-height: 1.5;
+  font-size: 1.1rem;
 }
 
 .layout {
@@ -47,5 +48,18 @@ body {
 
 .nav__link {
   margin-left: 20px;
+}
+
+.handwriting {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between
 }
 </style>

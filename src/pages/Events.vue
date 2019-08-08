@@ -1,11 +1,9 @@
 <template>
   <Layout>
     <div>
-      <ul>
-        <li v-for="edge in $page.events.edges" :key="edge.node.id">
-          <g-link :to="edge.node.path">{{ edge.node.name }}</g-link>
-        </li>
-      </ul>
+        <div v-for="(edge, index) in $page.events.edges" :key="edge.node.id">
+          <EventCard :event="edge.node" :color="hrColors[index % hrColors.length]" />
+        </div>
     </div>
   </Layout>
 </template>
@@ -20,6 +18,7 @@
           name
           startDate
           endDate
+          notes
           headerImage{
             url
           }
@@ -31,9 +30,20 @@
 
 <script>
 import Layout from '~/layouts/Default.vue'
+import EventCard from '~/components/EventCard.vue'
 export default {
   components: {
-    Layout
-  }
+    Layout,
+    EventCard
+  }, 
+  data() {
+    return {
+      hrColors: [
+        "#FCB400", // Airtable Yellow
+        "#18BFFF", // Airtable Blue
+        "#D92654" // Airtable Red
+      ]
+    }
+  },
 }
 </script>
