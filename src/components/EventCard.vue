@@ -6,7 +6,6 @@
     }"
   >
       <h1 class="handwriting eventTitle">{{ event.name }}</h1>
-      <p class="eventDates">{{formattedStart}} - {{formattedEnd}}</p>
       <p class="eventDates">{{formattedDate}}</p>
       <p>{{ event.notes }}</p>
       <g-link :to="event.path">More details >></g-link>
