@@ -41,6 +41,14 @@ module.exports = {
 
 ```
 
+- `apiKey` is the API secret provided by Airtable
+- `baseId` is the identifier for the base you would like to connect to
+- `tableName` is the table you would like to pull data from
+- `typeName` is what you would like to call your data in GraphQL
+- `route` is the optional path you would like to use for accessing your records. This can use GraphQL keys to identify records.
+
+**Note:** In order for your templates to generate properly at the specified route a `typeName.vue` file must exist in `\templates`. In this starter, this is `\templates\Event.vue` for the `Event` type.
+
 ### dotenv file
 
 [Details on Gridsome Environment Variables.](https://gridsome.org/docs/environment-variables)
