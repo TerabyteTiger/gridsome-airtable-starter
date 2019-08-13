@@ -1,4 +1,5 @@
 <template>
+<!-- This is the Event Card Preview Component-->
   <div 
     class="eventCard" 
     :style="{
@@ -21,6 +22,8 @@ export default {
     color: String
   },
   computed: {
+    // The variety of dates is intended as an example of ways to use Moment to get different date formats. 
+    // Unused computed values should be removed. 
     formattedStart: function(){
       return moment(this.event.startDate).format("MM/DD/YYYY h:mm A")
     },
@@ -53,6 +56,6 @@ export default {
 
 .eventDates{
   margin: 0;
-  color: hsl(0, 0%, 35%)
+  color: hsl(0, 0%, 35%);
 }
 </style>

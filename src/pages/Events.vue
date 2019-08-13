@@ -1,4 +1,5 @@
 <template>
+<!-- This is the Events list Page-->
   <Layout>
     <div>
         <div v-for="(edge, index) in $page.events.edges" :key="edge.node.id">

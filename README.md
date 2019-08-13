@@ -2,6 +2,8 @@
 
 This starter is meant to act as a starting point/example for connecting [Gridsome](https://gridsome.org/) with [Airtable](https://airtable.com/).
 
+*Note: This Starter utilizes [Moment.js](https://momentjs.com/) for date/times and can be removed from the Event files if not needed (and removed with `yarn remove moment`)*
+
 ## Install Gridsome CLI tool (if you dont' have it already)
 
 `npm install --global @gridsome/cli`
