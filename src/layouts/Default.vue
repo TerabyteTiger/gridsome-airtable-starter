@@ -2,11 +2,11 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
+        <g-link to="/" class="site-title">{{ $static.metaData.siteName }}</g-link>
       </strong>
       <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/events">Events</g-link>
+        <g-link class="nav__link nav--yellow" to="/">Home</g-link>
+        <g-link class="nav__link nav--red" to="/events">Events</g-link>
       </nav>
     </header>
     <slot/>
@@ -22,6 +22,11 @@ query {
 </static-query>
 
 <style>
+/* 
+"hsl(43, 100%, 49%)", Airtable Yellow
+"hsl(197, 100%, 55%)", Airtable Blue
+"hsl(345, 70%, 50%)"  Airtable Red 
+*/
 body {
   font-family: 'Open Sans', sans-serif;
   margin:0;
@@ -47,6 +52,8 @@ body {
 
 .nav__link {
   margin-left: 20px;
+  padding: 10px 15px;
+  font-weight: bold;
 }
 
 .handwriting {
@@ -61,4 +68,40 @@ body {
 .space-between {
   justify-content: space-between
 }
+
+.site-title {
+  padding: 10px 15px;
+  text-decoration: none;
+  background-color: hsl(197, 100%, 55%);
+  color: black;
+  border: 4px solid hsl(197, 100%, 55%);
+}
+
+.nav--blue {
+  border: 4px solid hsl(197, 100%, 55%);
+  color: black;
+}
+
+.nav--blue:hover {
+  background-color: hsl(197, 100%, 90%)
+}
+
+.nav--red {
+  border: 4px solid hsl(345, 70%, 50%);
+  color: #000000;
+}
+
+.nav--red:hover {
+  background-color: hsl(345, 100%, 90%)
+}
+
+.nav--yellow {
+  border: 4px solid hsl(43, 100%, 49%);
+  color: #000000
+}
+
+.nav--yellow:hover {
+  background-color: hsl(43, 100%, 90%)
+}
+
 </style>

@@ -7,7 +7,7 @@
       </span>
     </h1>
     <!-- <span class="date">{{formattedDate}}</span> -->
-    <span class="date--fun">{{formattedDate}}</span>
+    <time class="date--fun">{{formattedDate}}</time>
     <section>
       <h2>
         <span>
