@@ -6,10 +6,13 @@
       border: '3px solid ' + color
     }"
   >
-      <h1 class="handwriting eventTitle">{{ event.name }}</h1>
-      <p class="eventDates">{{formattedDate}}</p>
+      <h1 class="handwriting event--title">{{ event.name }}</h1>
+      <time class="event--dates">{{formattedDate}}</time>
       <p>{{ event.notes }}</p>
-      <g-link :to="event.path">More details >></g-link>
+      <g-link 
+        :to="event.path" 
+        class="link--moreDetails"
+      > Full Details >></g-link>
   </div> 
 </template>
 
@@ -44,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.eventTitle {
+.event--title {
   margin: 0;
 }  
 
@@ -54,8 +57,14 @@ export default {
   margin-bottom: 15px;
 }
 
-.eventDates{
+.event--date{
   margin: 0;
   color: hsl(0, 0%, 35%);
+}
+
+.link--moreDetails{
+  display: block;
+  padding-right: 25px;
+  text-align: right;
 }
 </style>

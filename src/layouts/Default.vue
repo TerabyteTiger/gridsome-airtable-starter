@@ -80,28 +80,31 @@ body {
 .nav--blue {
   border: 4px solid hsl(197, 100%, 55%);
   color: black;
+  border-radius: 10px;
 }
 
 .nav--blue:hover {
-  background-color: hsl(197, 100%, 90%)
+  background-color: hsl(197, 100%, 90%);
 }
 
 .nav--red {
   border: 4px solid hsl(345, 70%, 50%);
   color: #000000;
+  border-radius: 10px;
 }
 
 .nav--red:hover {
-  background-color: hsl(345, 100%, 90%)
+  background-color: hsl(345, 100%, 90%);
 }
 
 .nav--yellow {
   border: 4px solid hsl(43, 100%, 49%);
-  color: #000000
+  color: #000000;
+  border-radius: 10px;
 }
 
 .nav--yellow:hover {
-  background-color: hsl(43, 100%, 90%)
+  background-color: hsl(43, 100%, 90%);
 }
 
 </style>

@@ -11,7 +11,7 @@
 
 <page-query>
   query Events {
-    events: allEvent{
+    events: allEvent (sort: { by: "startDate", order: ASC }){
       edges {
         node{
           id
