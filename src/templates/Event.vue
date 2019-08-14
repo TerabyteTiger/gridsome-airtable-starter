@@ -2,15 +2,22 @@
 <!-- This is the Event Details View Page-->
   <Layout>
     <h1 class="handwriting">
-      <span class="title--">
+      <span>
         {{$page.event.name}}
       </span>
     </h1>
-    
-    <span class="date">{{formattedDate}}</span>
-
-    <h2>Details:</h2>
-    {{$page.event.notes}}
+    <!-- <span class="date">{{formattedDate}}</span> -->
+    <span class="date--fun">{{formattedDate}}</span>
+    <section>
+      <h2>
+        <span>
+          Details:
+        </span>
+      </h2>
+      <p>
+        {{$page.event.notes}}
+      </p>
+    </section>
   </Layout>
 </template>
 
@@ -59,6 +66,9 @@ query Event ($id: String!) {
     startDate
     endDate
     notes
+    headerImage{
+      url
+    }
   }
 }
 </page-query>
@@ -76,11 +86,21 @@ h1 > span{
 }
 
 h1 {
-  margin-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+h2 > span {
+  border-bottom: 4px solid #18BFFF;
 }
 
 .date {
   color: hsl(0, 0%, 35%);
 }
 
+.date--fun{
+  background: #FCB400;
+  padding: 4px;
+  font-weight: bold;
+
+}
 </style>
