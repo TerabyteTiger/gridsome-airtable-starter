@@ -63,3 +63,11 @@ AIRTABLE_BASE=<baseId>
 ```
 
 You can learn more about getting these values from the [plugin page](https://gridsome.org/plugins/@gridsome/source-airtable).
+
+## Query Pages
+
+A list of files where the starter uses queries to make updating easier (all from the `src` folder):
+
+- `pages/Events.vue` - Grabs all Events sorted by `startDate`
+- `components/EventCard.vue` - Brings Props in from `pages/Events.vue`
+- `templates/Event.vue` - Uses `id` to pull in data from Airtable.

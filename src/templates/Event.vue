@@ -10,13 +10,42 @@
     <time class="date--fun">{{formattedDate}}</time>
     <section>
       <h2>
-        <span>
+        <span class="underline--blue">
           Details:
         </span>
       </h2>
-      <p>
-        {{$page.event.notes}}
-      </p>
+      <p class="paragraph--whitespace">{{$page.event.notes}}</p>
+    </section>
+    <section>
+      <h2>
+        <span class="underline--yellow">
+          Attachments:
+        </span>
+      </h2>
+      <div class="attachments">
+        <div 
+          v-for="(file,index) in $page.event.attachments"
+          :key="file.id"
+          class="attachment--item" 
+          :style="{
+            border: '3px solid ' + attachmentColors[index % attachmentColors.length]
+          }"
+        >
+          <h3> 
+            {{file.filename}}
+          </h3>
+          <a :href="file.url" target="_blank">
+            <button class="file--button-download handwriting"
+              tabindex="-1"
+              :style="{
+                borderBottom: '3px solid ' + attachmentColors[index % attachmentColors.length]
+              }"
+            >
+              Download!
+            </button>
+          </a>
+        </div>
+      </div>
     </section>
   </Layout>
 </template>
@@ -28,6 +57,15 @@ import Layout from '~/layouts/Default.vue'
 export default {
   components: {
     Layout
+  },
+  data(){
+    return {
+      attachmentColors: [
+        "hsl(345, 70%, 50%)",  //Airtable Red 
+        "hsl(197, 100%, 55%)", // Airtable Blue
+        "hsl(43, 100%, 49%)"   // Airtable Yellow
+      ]
+    }
   },
   metaInfo() {
     return {
@@ -66,8 +104,10 @@ query Event ($id: String!) {
     startDate
     endDate
     notes
-    headerImage{
+    attachments {
+      id
       url
+      filename
     }
   }
 }
@@ -75,13 +115,13 @@ query Event ($id: String!) {
 
 <style scoped>
 /* 
-"#FCB400", Airtable Yellow
-"#18BFFF", Airtable Blue
-"#D92654"  Airtable Red 
+"hsl(43, 100%, 49%)", Airtable Yellow
+"hsl(197, 100%, 55%)", Airtable Blue
+"hsl(345, 70%, 50%)"  Airtable Red 
 */
 
 h1 > span{
-  border-bottom: 4px solid #D92654;
+  border-bottom: 4px solid hsl(345, 70%, 50%);
   padding-bottom: 4px;
 }
 
@@ -89,18 +129,47 @@ h1 {
   margin-bottom: 16px;
 }
 
-h2 > span {
-  border-bottom: 4px solid #18BFFF;
+.underline--blue {
+  border-bottom: 4px solid hsl(197, 100%, 55%);
 }
 
-.date {
-  color: hsl(0, 0%, 35%);
+.underline--yellow {
+  border-bottom: 4px solid hsl(43, 100%, 49%);
 }
 
 .date--fun{
-  background: #FCB400;
+  background: hsl(43, 100%, 49%);
   padding: 4px;
   font-weight: bold;
+}
 
+.paragraph--whitespace {
+  /** This converts the `\n`'s into line breaks when *
+  *   pulled from Airtable's Long text fields        */
+  white-space: pre-wrap;
+}
+
+.attachments{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.attachment--item {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  word-wrap: anywhere;
+  flex-direction: column;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.file--button-download{
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0;
 }
 </style>

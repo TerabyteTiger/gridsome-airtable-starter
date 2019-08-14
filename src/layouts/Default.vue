@@ -2,7 +2,7 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link to="/" class="site-title">{{ $static.metaData.siteName }}</g-link>
+        <g-link to="/" class="handwriting site-title">{{ $static.metaData.siteName }}</g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link nav--yellow" to="/">Home</g-link>
@@ -70,11 +70,13 @@ body {
 }
 
 .site-title {
-  padding: 10px 15px;
+  padding: 5px 15px;
   text-decoration: none;
   background-color: hsl(197, 100%, 55%);
   color: black;
   border: 4px solid hsl(197, 100%, 55%);
+  font-size: 1.5rem;
+  
 }
 
 .nav--blue {
