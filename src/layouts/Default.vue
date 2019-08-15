@@ -42,13 +42,7 @@ body {
   padding-right: 20px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
+
 
 .nav__link {
   margin-left: 20px;
@@ -107,6 +101,17 @@ body {
 
 .nav--yellow:hover {
   background-color: hsl(43, 100%, 90%);
+}
+
+
+@media only screen and (min-width: 500px) {
+  .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 80px;
+  }
 }
 
 </style>

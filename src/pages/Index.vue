@@ -59,5 +59,6 @@ export default {
   margin: 0 auto;
   display: block;
   padding: 4px;
+  max-width: 100%;
 }
 </style>
