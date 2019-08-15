@@ -19,7 +19,7 @@
           name
           startDate
           endDate
-          notes
+          excerpt
           headerImage{
             url
           }

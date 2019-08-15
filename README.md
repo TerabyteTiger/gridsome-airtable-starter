@@ -57,7 +57,7 @@ module.exports = {
 
 You'll need to create the file `.env` in your root project directory (The same level as `gridsome.config.js`) with the following (replace with your values):
 
-```
+```dotenv
 AIRTABLE_KEY=<apiKey>
 AIRTABLE_BASE=<baseId>
 ```
@@ -71,3 +71,8 @@ A list of files where the starter uses queries to make updating easier (all from
 - `pages/Events.vue` - Grabs all Events sorted by `startDate`
 - `components/EventCard.vue` - Brings Props in from `pages/Events.vue`
 - `templates/Event.vue` - Uses `id` to pull in data from Airtable.
+
+## My Airtable
+This is what my Airtable Base looks like:
+
+!["Airtable with columns for Name, Header Image, Start Date, End Date, Excerpt, Notes, and Attachments."](./airtableSetup.png)

@@ -1,18 +1,19 @@
 <template>
 <!-- This is the Event Card Preview Component-->
   <div 
-    class="eventCard" 
+    class="event--card" 
     :style="{
       border: '3px solid ' + color
     }"
   >
       <h1 class="handwriting event--title">{{ event.name }}</h1>
       <time class="event--dates">{{formattedDate}}</time>
-      <p>{{ event.notes }}</p>
-      <g-link 
-        :to="event.path" 
-        class="link--moreDetails"
-      > Full Details >></g-link>
+      <p class="event--excerpt">{{ event.excerpt}}</p>
+      <div class="link--moreDetails">
+        <g-link 
+          :to="event.path" 
+        > Full Details >></g-link>
+      </div>
   </div> 
 </template>
 
@@ -51,7 +52,7 @@ export default {
   margin: 0;
 }  
 
-.eventCard {
+.event--card {
   border-radius: 10px;
   padding: 7px;
   margin-bottom: 15px;
@@ -66,5 +67,11 @@ export default {
   display: block;
   padding-right: 25px;
   text-align: right;
+}
+
+.event--excerpt {
+  /** This converts the `\n`'s into line breaks when *
+  *   pulled from Airtable's Long text fields        */
+  white-space: pre-wrap;
 }
 </style>
