@@ -52,12 +52,6 @@ export default {
   margin: 0;
 }  
 
-.event--card {
-  border-radius: 10px;
-  padding: 7px;
-  margin-bottom: 15px;
-}
-
 .event--date{
   margin: 0;
   color: hsl(0, 0%, 35%);
@@ -73,5 +67,17 @@ export default {
   /** This converts the `\n`'s into line breaks when *
   *   pulled from Airtable's Long text fields        */
   white-space: pre-wrap;
+}
+
+.event--card {
+    border-radius: 10px;
+    padding: 7px;
+    margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 500px) {
+  .event--card {
+    padding: 12px 24px;
+  }
 }
 </style>
