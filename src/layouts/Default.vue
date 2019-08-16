@@ -9,7 +9,11 @@
         <g-link class="nav__link nav--red" to="/events">Events</g-link>
       </nav>
     </header>
-    <slot/>
+    <transition name="fade" appear>
+      <main>
+        <slot/>
+      </main>
+    </transition>
     <footer>
       Built with <a href="https://gridsome.org/docs" target="_blank" rel="noopener" class="link--gridsome">Gridsome</a> by <a href="https://twitter.com/PichuPlayer" target="_blank" rel="noopener" class="link--blue">Tyler</a>
     </footer>
@@ -30,6 +34,18 @@ query {
 "hsl(197, 100%, 55%)", Airtable Blue
 "hsl(345, 70%, 50%)"  Airtable Red 
 */
+
+
+/* Transition */
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+/* CSS */
 body > div {
   display: flex;
   flex-direction: column;
@@ -50,6 +66,10 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
 }
 
 footer {
