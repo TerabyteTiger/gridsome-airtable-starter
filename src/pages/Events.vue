@@ -5,6 +5,9 @@
         <div v-for="(edge, index) in $page.events.edges" :key="edge.node.id">
           <EventCard :event="edge.node" :color="hrColors[index % hrColors.length]" />
         </div>
+        <div v-for="(edge, index) in $page.partys.edges" :key="edge.node.id">
+          {{edge.node.name}}
+        </div>
     </div>
   </Layout>
 </template>
@@ -26,8 +29,18 @@
         }
       }
     }
+    
+    partys: allParty{
+      edges {
+        node {
+          name
+        }
+      }
+    }
   }
 </page-query>
+
+
 
 <script>
 import Layout from '~/layouts/Default.vue'
@@ -46,5 +59,6 @@ export default {
       ]
     }
   },
+  
 }
 </script>
