@@ -79,7 +79,7 @@ A list of files where the starter uses queries to make updating easier (all from
 ## My Airtable
 This is what my Airtable Base looks like:
 
-!["Airtable with columns for Name, Header Image, Start Date, End Date, Excerpt, Notes, and Attachments."](./airtableSetup.png)
+!["Airtable with columns for Name, Header Image, Start Date, End Date, Excerpt, Notes, and Attachments."](./airtableSetup.PNG)
 
 
 # Deploy with Netlify
