@@ -19,8 +19,8 @@ module.exports = {
           {
             name: "Events",
             typeName: "Event", //required - needs to match template name
-            select: {},
-            links: [],
+            select: {}, //optional
+            links: [], //optional
           },
         ],
         tableName: "Events", //required

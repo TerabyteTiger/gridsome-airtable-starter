@@ -1,10 +1,10 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/66526f3f-455e-4ee4-b05e-3cf37c607921/deploy-status)](https://app.netlify.com/sites/gridsomeairtable/deploys)
-
 # Airtable starter for Gridsome
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/66526f3f-455e-4ee4-b05e-3cf37c607921/deploy-status)](https://app.netlify.com/sites/gridsomeairtable/deploys)
 
 This starter is meant to act as a starting point/example for connecting [Gridsome](https://gridsome.org/) with [Airtable](https://airtable.com/).
 
-*Note: This Starter utilizes [Moment.js](https://momentjs.com/) for date/times and can be removed from the Event files if not needed (and removed with `yarn remove moment`)*
+_Note: This Starter utilizes [Moment.js](https://momentjs.com/) for date/times and can be removed from the Event files if not needed (and removed with `yarn remove moment`)_
 
 ## Install Gridsome CLI tool (if you dont' have it already)
 
@@ -17,7 +17,7 @@ This starter is meant to act as a starting point/example for connecting [Gridsom
 3. `gridsome develop` to start a local dev server at `http://localhost:8080`
 4. Happy coding 🎉💻
 
-## Configure your Airtable connection
+## Configure your Airtable connection for your first table
 
 Inside your `gridsome.config.js` file, you'll see the following:
 
@@ -25,24 +25,32 @@ Inside your `gridsome.config.js` file, you'll see the following:
 // gridsome.config.js //
 
 module.exports = {
-  siteName: 'Site Name',
+  siteName: "Site Name",
   plugins: [
     {
-      use: '@gridsome/source-airtable',
+      use: "@gridsome/source-airtable",
       options: {
         // Add these to a .env file
         // Details on finding these values can be found at:
         // https://gridsome.org/plugins/@gridsome/source-airtable
         apiKey: process.env.AIRTABLE_KEY, //required
         baseId: process.env.AIRTABLE_BASE, //required
-        tableName: 'Events', //required
-        typeName: 'Event', //required - needs to match template name
-        route: '/events/:name' //optional
-      }
-    }
-  ]
-}
-
+        tables: [
+          {
+            name: "Events", //required - Name of your table in Airtable
+            typeName: "Event", //required - needs to match template name
+            select: {}, //optional
+            links: [], // optional
+          },
+        ],
+        tableName: "Events", //required
+      },
+    },
+  ],
+  templates: {
+    Event: "/events/:id", //optional
+  },
+};
 ```
 
 - `apiKey` is the API secret provided by Airtable
@@ -52,6 +60,8 @@ module.exports = {
 - `route` is the optional path you would like to use for accessing your records. This can use GraphQL keys to identify records.
 
 **Note:** In order for your templates to generate properly at the specified route a `typeName.vue` file must exist in `\templates`. In this starter, this is `\templates\Event.vue` for the `Event` type.
+
+For connecting multiple tables or using links between tables, see the [official plugin's documentation](https://gridsome.org/plugins/@gridsome/source-airtable). 😄
 
 ### dotenv file
 
@@ -77,10 +87,11 @@ A list of files where the starter uses queries to make updating easier (all from
 - `templates/Event.vue` - Uses `id` to pull in data from Airtable.
 
 ## My Airtable
+
 This is what my Airtable Base looks like:
 
 !["Airtable with columns for Name, Header Image, Start Date, End Date, Excerpt, Notes, and Attachments."](./airtableSetup.PNG)
 
-
 # Deploy with Netlify
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/12vanblart/gridsome-airtable-starter)
