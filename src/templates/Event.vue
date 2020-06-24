@@ -1,20 +1,20 @@
 <template>
-<!-- This is the Event Details View Page-->
+  <!-- This is the Event Details View Page-->
   <Layout>
     <h1 class="handwriting">
       <span>
-        {{$page.event.name}}
+        {{ $page.event.name }}
       </span>
     </h1>
     <!-- <span class="date">{{formattedDate}}</span> -->
-    <time class="date--fun">{{formattedDate}}</time>
+    <time class="date--fun">{{ formattedDate }}</time>
     <section>
       <h2>
         <span class="underline--blue">
           Details:
         </span>
       </h2>
-      <p class="paragraph--whitespace">{{$page.event.notes}}</p>
+      <p class="paragraph--whitespace">{{ $page.event.notes }}</p>
     </section>
     <section>
       <h2>
@@ -23,22 +23,26 @@
         </span>
       </h2>
       <div class="attachments">
-        <div 
-          v-for="(file,index) in $page.event.attachments"
+        <div
+          v-for="(file, index) in $page.event.attachments"
           :key="file.id"
-          class="attachment--item" 
+          class="attachment--item"
           :style="{
-            border: '3px solid ' + attachmentColors[index % attachmentColors.length]
+            border:
+              '3px solid ' + attachmentColors[index % attachmentColors.length],
           }"
         >
-          <h3> 
-            {{file.filename}}
+          <h3>
+            {{ file.filename }}
           </h3>
           <a :href="file.url" target="_blank">
-            <button class="file--button-download handwriting"
+            <button
+              class="file--button-download handwriting"
               tabindex="-1"
               :style="{
-                borderBottom: '3px solid ' + attachmentColors[index % attachmentColors.length]
+                borderBottom:
+                  '3px solid ' +
+                  attachmentColors[index % attachmentColors.length],
               }"
             >
               Download!
@@ -51,56 +55,62 @@
 </template>
 
 <script>
-import moment from 'moment'
-import Layout from '~/layouts/Default.vue'
+import moment from "moment";
+import Layout from "~/layouts/Default.vue";
 
 export default {
   components: {
-    Layout
+    Layout,
   },
-  data(){
+  data() {
     return {
       attachmentColors: [
-        "hsl(345, 70%, 50%)",  //Airtable Red 
+        "hsl(345, 70%, 50%)", //Airtable Red
         "hsl(197, 100%, 55%)", // Airtable Blue
-        "hsl(43, 100%, 49%)"   // Airtable Yellow
-      ]
-    }
+        "hsl(43, 100%, 49%)", // Airtable Yellow
+      ],
+    };
   },
   metaInfo() {
     return {
-      title: this.$page.event.name
-    }
+      title: this.$page.event.name,
+    };
   },
   computed: {
-    // The variety of dates is intended as an example of ways to use Moment to get different date formats. 
-    // Unused computed values should be removed. 
-    formattedStart: function(){
-      return moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A")
+    // The variety of dates is intended as an example of ways to use Moment to get different date formats.
+    // Unused computed values should be removed.
+    formattedStart: function() {
+      return moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A");
     },
-    formattedEnd: function(){
-      return moment(this.$page.event.endDate).format("MM/DD/YYYY h:mm A")
+    formattedEnd: function() {
+      return moment(this.$page.event.endDate).format("MM/DD/YYYY h:mm A");
     },
-    formattedDate: function(){
-      const start = moment(this.$page.event.startDate).format("MM/DD/YYYY")
-      const end = moment(this.$page.event.endDate).format("MM/DD/YYYY")
-      if ( start == end ) {
-        return moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A") + " - " + moment(this.$page.event.endDate).format("h:mm A")
+    formattedDate: function() {
+      const start = moment(this.$page.event.startDate).format("MM/DD/YYYY");
+      const end = moment(this.$page.event.endDate).format("MM/DD/YYYY");
+      if (start == end) {
+        return (
+          moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A") +
+          " - " +
+          moment(this.$page.event.endDate).format("h:mm A")
+        );
       } else {
-        return moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A") + " - " + moment(this.$page.event.endDate).format("MM/DD/YYYY h:mm A")
+        return (
+          moment(this.$page.event.startDate).format("MM/DD/YYYY h:mm A") +
+          " - " +
+          moment(this.$page.event.endDate).format("MM/DD/YYYY h:mm A")
+        );
       }
-    }
+    },
   },
-}
+};
 </script>
 
-
 <page-query>
-query Event ($id: String!) {
+query Event ($id: ID!) {
   event: event(id: $id) {
     id
     name
-    path
     startDate
     endDate
     notes
@@ -120,7 +130,7 @@ query Event ($id: String!) {
 "hsl(345, 70%, 50%)"  Airtable Red 
 */
 
-h1 > span{
+h1 > span {
   border-bottom: 4px solid hsl(345, 70%, 50%);
   padding-bottom: 4px;
 }
@@ -137,7 +147,7 @@ h1 {
   border-bottom: 4px solid hsl(43, 100%, 49%);
 }
 
-.date--fun{
+.date--fun {
   background: hsl(43, 100%, 49%);
   padding: 4px;
   font-weight: bold;
@@ -149,7 +159,7 @@ h1 {
   white-space: pre-wrap;
 }
 
-.attachments{
+.attachments {
   display: flex;
   justify-content: space-evenly;
 }
@@ -166,7 +176,7 @@ h1 {
   justify-content: space-between;
 }
 
-.file--button-download{
+.file--button-download {
   background: transparent;
   border: none;
   font-size: 1.5rem;

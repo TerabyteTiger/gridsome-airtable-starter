@@ -1,10 +1,13 @@
 <template>
-<!-- This is the Events list Page-->
+  <!-- This is the Events list Page-->
   <Layout>
     <div>
-        <div v-for="(edge, index) in $page.events.edges" :key="edge.node.id">
-          <EventCard :event="edge.node" :color="hrColors[index % hrColors.length]" />
-        </div>
+      <div v-for="(edge, index) in $page.events.edges" :key="edge.node.id">
+        <EventCard
+          :event="edge.node"
+          :color="hrColors[index % hrColors.length]"
+        />
+      </div>
     </div>
   </Layout>
 </template>
@@ -15,7 +18,6 @@
       edges {
         node{
           id
-          path
           name
           startDate
           endDate
@@ -30,21 +32,21 @@
 </page-query>
 
 <script>
-import Layout from '~/layouts/Default.vue'
-import EventCard from '~/components/EventCard.vue'
+import Layout from "~/layouts/Default.vue";
+import EventCard from "~/components/EventCard.vue";
 export default {
   components: {
     Layout,
-    EventCard
-  }, 
+    EventCard,
+  },
   data() {
     return {
       hrColors: [
         "#FCB400", // Airtable Yellow
         "#18BFFF", // Airtable Blue
-        "#D92654" // Airtable Red
-      ]
-    }
+        "#D92654", // Airtable Red
+      ],
+    };
   },
-}
+};
 </script>

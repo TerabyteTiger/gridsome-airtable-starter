@@ -840,10 +840,10 @@
     sort-package-json "^1.15.0"
     update-notifier "^4.1.0"
 
-"@gridsome/source-airtable@^0.1.0":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@gridsome/source-airtable/-/source-airtable-0.1.4.tgz#3bae827c56ac7987b6aa05e38386a030a007f22e"
-  integrity sha512-nNXv87mIORx08UOx+7g1kDdq1WwB++H5PvoKLo8UsO7hhhtNcJt0WpVh0I8cquREyUkQF6QWwYijuNQFKeaopw==
+"@gridsome/source-airtable@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@gridsome/source-airtable/-/source-airtable-0.2.0.tgz#df928a2584d2387904ad90c9e8b55dcae224724f"
+  integrity sha512-VF7Gren3Zi/0+wMRDWiImiV4zvi1H1ocENXmlepB9eD3vuGVLC4XB/mqwQDPkkgh2lGCyZaowPA8xyNMAIOWYg==
   dependencies:
     airtable "^0.7.2"
 

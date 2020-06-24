@@ -2,7 +2,9 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link to="/" class="handwriting site-title">{{ $static.metaData.siteName }}</g-link>
+        <g-link to="/" class="handwriting site-title">{{
+          $static.metadata.siteName
+        }}</g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link nav--yellow" to="/">Home</g-link>
@@ -11,18 +13,33 @@
     </header>
     <transition name="fade" appear>
       <main>
-        <slot/>
+        <slot />
       </main>
     </transition>
     <footer>
-      Built with <a href="https://gridsome.org/docs" target="_blank" rel="noopener" class="link--gridsome">Gridsome</a> by <a href="https://twitter.com/PichuPlayer" target="_blank" rel="noopener" class="link--blue">Tyler</a>
+      Built with
+      <a
+        href="https://gridsome.org/docs"
+        target="_blank"
+        rel="noopener"
+        class="link--gridsome"
+        >Gridsome</a
+      >
+      by
+      <a
+        href="https://twitter.com/PichuPlayer"
+        target="_blank"
+        rel="noopener"
+        class="link--blue"
+        >Tyler</a
+      >
     </footer>
   </div>
 </template>
 
 <static-query>
 query {
-  metaData {
+  metadata {
     siteName
   }
 }
@@ -35,10 +52,9 @@ query {
 "hsl(345, 70%, 50%)"  Airtable Red 
 */
 
-
 /* Transition */
 .fade-enter-active {
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .fade-enter {
@@ -53,9 +69,9 @@ body > div {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  margin:0;
-  padding:0;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
   font-size: 1.1rem;
 }
@@ -86,7 +102,7 @@ footer {
 }
 
 .handwriting {
-  font-family: 'Patrick Hand', cursive;
+  font-family: "Patrick Hand", cursive;
 }
 
 .flex-row {
@@ -95,7 +111,7 @@ footer {
 }
 
 .space-between {
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .site-title {
@@ -157,15 +173,14 @@ footer {
 @media only screen and (min-width: 500px) {
   /* Larger Screens Only */
   .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-  flex-direction: row
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 80px;
+    flex-direction: row;
   }
 }
-
 
 .link--red {
   border-bottom: 3px solid hsl(345, 70%, 50%);
@@ -186,6 +201,4 @@ footer {
   border-bottom: 3px solid hsl(157, 55%, 58%);
   text-decoration: none;
 }
-
-
 </style>
