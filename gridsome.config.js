@@ -22,12 +22,18 @@ module.exports = {
             select: {}, //optional
             links: [], //optional
           },
+          // {
+          //   name: "Parties",
+          //   typeName: "Parties", //required - needs to match template name
+          //   select: {}, //optional
+          //   links: [], //optional
+          // },
         ],
-        tableName: "Events", //required
       },
     },
   ],
   templates: {
     Event: "/events/:id", //optional
+    // Parties: "/parties/:id", //optional
   },
 };
