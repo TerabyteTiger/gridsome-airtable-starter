@@ -23,9 +23,8 @@ Inside your `gridsome.config.js` file, you'll see the following:
 
 ```javascript
 // gridsome.config.js //
-
 module.exports = {
-  siteName: "Site Name",
+  siteName: "Airtable Starter",
   plugins: [
     {
       use: "@gridsome/source-airtable",
@@ -37,18 +36,25 @@ module.exports = {
         baseId: process.env.AIRTABLE_BASE, //required
         tables: [
           {
-            name: "Events", //required - Name of your table in Airtable
+            name: "Events",
             typeName: "Event", //required - needs to match template name
             select: {}, //optional
-            links: [], // optional
+            links: [], //optional
           },
+          // Comment in this section and the line in `templates` for multiple tables!
+          // {
+          //   name: "Parties",
+          //   typeName: "Parties", //required - needs to match template name
+          //   select: {}, //optional
+          //   links: [], //optional
+          // },
         ],
-        tableName: "Events", //required
       },
     },
   ],
   templates: {
     Event: "/events/:id", //optional
+    // Parties: "/parties/:id", //optional
   },
 };
 ```
