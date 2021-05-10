@@ -27,7 +27,7 @@
       >
       by
       <a
-        href="https://twitter.com/PichuPlayer"
+        href="https://twitter.com/TerabyteTiger"
         target="_blank"
         rel="noopener"
         class="link--blue"
